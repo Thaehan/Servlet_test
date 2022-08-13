@@ -1,15 +1,13 @@
 package com.thaehan.servlet_test;
 
+import com.thaehan.servlet_test.Objects.User;
 import java.io.*;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-  private String message;
-
   @Override
   public void init() {
     System.out.println("Server started!");
@@ -31,8 +29,11 @@ public class HelloServlet extends HttpServlet {
 
     response.setContentType("text/html");
 
+    User newUser = new User("Thaehan", "newspapers123z");
+
     PrintWriter writer = response.getWriter();
 
     writer.println("DO");
+    writer.println(newUser);
   }
 }
